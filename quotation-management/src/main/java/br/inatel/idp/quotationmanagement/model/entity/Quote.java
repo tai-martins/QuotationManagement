@@ -1,40 +1,50 @@
-package br.inatel.idp.quotationmanagement.model;
+package br.inatel.idp.quotationmanagement.model.entity;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.UUID;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
 
 @Entity
 public class Quote {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private String id;
 
 	@ManyToOne
 	private Stock stock;
 	private LocalDate date;
-	private double price;
+	private BigDecimal price;
 	
 	public Quote() {
 
 	}
 
-	public Quote(Stock stock, LocalDate date, double price) {
+	public Quote(Stock stock, LocalDate date, BigDecimal price) {
 		this.stock = stock;
 		this.date = date;
 		this.price = price;
 	}
 
-	public Long getId() {
+	@PrePersist
+	private void onPersist() {
+		generateUUID();
+	}
+
+	private void generateUUID() {
+		id = UUID.randomUUID().toString();
+		
+	}
+	
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -54,11 +64,11 @@ public class Quote {
 		this.date = date;
 	}
 
-	public double getPrice() {
+	public BigDecimal getPrice() {
 		return price;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
 

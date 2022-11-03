@@ -1,4 +1,4 @@
-package br.inatel.idp.quotationmanagement.model;
+package br.inatel.idp.quotationmanagement.model.entity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,6 +61,13 @@ public class Stock {
 
 	public void setQuotes(List<Quote> quotes) {
 		this.quotes = quotes;
+	}
+	
+	public void addQuote(Quote q) {
+		if (this.quotes==null) {
+			 this.quotes = new ArrayList<>();
+		}
+		this.quotes.add( q );
 	}
 
 	@Override
