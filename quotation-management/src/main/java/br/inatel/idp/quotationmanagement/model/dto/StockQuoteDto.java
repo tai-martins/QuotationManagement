@@ -49,16 +49,6 @@ public class StockQuoteDto {
 	public void setQuotes(Map<LocalDate, BigDecimal> quotes) {
 		this.quotes = quotes;
 	}
-
-//	public Stock convertTo() {
-//		Stock stock = new Stock();
-//		stock.setId(id);
-//		stock.setStockId(stockId);
-//
-//		quotes.entrySet().stream().map(e -> new Quote(stock, e.getKey(), e.getValue())).forEach(q -> stock.addQuote(q));
-//	
-//	return stock;
-//	}
 	
 	public static List<StockQuoteDto> convertTo(List<Stock> stocks) {
 		return stocks.stream().map(StockQuoteDto::new).collect(Collectors.toList());

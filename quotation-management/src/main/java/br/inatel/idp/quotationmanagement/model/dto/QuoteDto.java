@@ -63,12 +63,6 @@ public class QuoteDto {
 		this.price = price;
 	}
 	
-//	public Quote convertToQuote() {
-//		Stock stock = new Stock(this.stockId, this.stockId);
-//		Quote quote = new Quote( stock, date, price);
-//		return quote;
-//	}
-	
 	public static List<QuoteDto> convert(List<Quote> quotes) {
 		return quotes.stream().map(QuoteDto::new).collect(Collectors.toList());
 	}
