@@ -54,7 +54,5 @@ public class StockQuoteDto {
 		return stocks.stream().map(StockQuoteDto::new).collect(Collectors.toList());
 	}
 
-
-	
 	
 }

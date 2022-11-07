@@ -24,6 +24,10 @@ public class Stock {
 
 	}
 
+	public Stock(String stockId) {
+		this.stockId = stockId;
+	}
+
 	public Stock(String id, String stockId) {
 		this.id = id;
 		this.stockId = stockId;
