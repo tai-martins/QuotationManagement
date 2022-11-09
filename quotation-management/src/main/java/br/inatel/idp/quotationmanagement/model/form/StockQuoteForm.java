@@ -15,6 +15,12 @@ import org.hibernate.validator.constraints.Length;
 import br.inatel.idp.quotationmanagement.model.entity.Quote;
 import br.inatel.idp.quotationmanagement.model.entity.Stock;
 
+/**
+ * StockQuoteForm class
+ * @author Tainara Martins.
+ * @since November 2022
+ */
+
 public class StockQuoteForm {
 
 	@NotNull @NotEmpty @Length(min = 2)

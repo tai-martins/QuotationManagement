@@ -10,7 +10,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 
 @Entity
-public class Stock {
+public class Stock{
 	
 	@Id
 	private String id;

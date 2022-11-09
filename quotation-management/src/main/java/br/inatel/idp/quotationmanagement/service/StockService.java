@@ -21,6 +21,7 @@ public class StockService {
 	
 	@Autowired
 	QuoteRepository quoteRepository;
+	
 
 	public Stock saveStockDb(Stock stock) {
 		stock = stockRepository.save(stock);
@@ -41,7 +42,6 @@ public class StockService {
 		List<Stock> stocks = stockRepository.findAll();
 		stocks.forEach(stock -> stock.getQuotes().size());
 		return stocks;
-	}
-	
+	}	
 	
 }
