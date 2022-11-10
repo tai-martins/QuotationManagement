@@ -12,7 +12,9 @@ Tainara Martins
 
 Install the tools below on your computer
 
+<strong><img src="https://user-images.githubusercontent.com/53630619/201181059-5928b7f5-6f70-428c-8f64-5fb81bb148fb.png" alt="Docker " style="width: 30px;"/></strong>
 [Docker](https://www.docker.com/)  
+
 First create the network:
 ```
 docker network create inatel
@@ -26,20 +28,18 @@ Start the Stock Manager application:
 ```
 docker container run –-name stockmanager --network=inatel -p 8080:8080 -d adautomendes/stock-manager
 ```
-![image](https://user-images.githubusercontent.com/53630619/201181059-5928b7f5-6f70-428c-8f64-5fb81bb148fb.png)
 
-
-
+<strong><img src="https://user-images.githubusercontent.com/53630619/201180997-11fd8320-28fa-46d6-aca7-0f8de77a8a32.png" alt="Java" style="width: 35px;"/></strong>
 [JDK JAVA 17](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html) 
 
-![image](https://user-images.githubusercontent.com/53630619/201180997-11fd8320-28fa-46d6-aca7-0f8de77a8a32.png)
 
-[Maven](https://maven.apache.org/download.cgi) 
+<strong><img src="https://user-images.githubusercontent.com/53630619/201184866-d289df6d-f85d-4492-af30-cca7461feda4.png" alt="MAVEN" style="width: 35px;"/></strong>
+[Maven](https://maven.apache.org/download.cgi)  
+
 Install dependencies:
 ```
 mvn install
 ```
-![image](https://user-images.githubusercontent.com/53630619/201184866-d289df6d-f85d-4492-af30-cca7461feda4.png)
 
 
 #### Clone this repository
