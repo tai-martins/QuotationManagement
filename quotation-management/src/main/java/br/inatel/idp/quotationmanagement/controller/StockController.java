@@ -25,10 +25,10 @@ import br.inatel.idp.quotationmanagement.model.form.StockQuoteForm;
 import br.inatel.idp.quotationmanagement.service.StockService;
 
 /**
- * Controller Class
+ * Controller Class. Implementation of endpoints
  * 
  * @author Tainara Martins.
- * @since October 2022
+ * @since November 2022
  */
 
 @RestController
@@ -38,6 +38,11 @@ public class StockController {
 	@Autowired
 	private StockService stockService;
 
+	/**
+	 * Get method
+	 * 
+	 * @return All stocks and their quotes 
+	 */
 	@GetMapping
 	@Cacheable(value = "stocksList")
 	public List<StockQuoteDto> list() {
@@ -47,6 +52,11 @@ public class StockController {
 		return sqDto;
 	}
 
+	/**
+	 * Get method
+	 * 
+	 * @return one stock by your stockId
+	 */
 	@GetMapping("/{stockId}")
 	@Cacheable(value = "oneStock")
 	public ResponseEntity<?> getByStockId(@PathVariable String stockId) {
@@ -59,6 +69,11 @@ public class StockController {
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
+	/**
+	 * Post method
+	 * 
+	 * @return ResponseEntity and Body
+	 */
 	@PostMapping
 	@ResponseStatus(code = HttpStatus.CREATED)
 	@CacheEvict(value = { "stocksList", "oneStock" }, allEntries = true)
@@ -73,20 +88,21 @@ public class StockController {
 			return new ResponseEntity<>(new StockQuoteDto(stock), HttpStatus.CREATED);
 		}
 
-//		else {
-////		return ResponseEntity.badRequest().build();
-//			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//		}
-
 		else {
-			Stock stock = form.convertTo();
-			stockService.saveStockDb(stock);
-			form.addQuotesList(stock);
-			stockService.saveQuoteDb(stock.getQuotes());
-			return new ResponseEntity<>(new StockQuoteDto(stock), HttpStatus.CREATED);
+//			return ResponseEntity.badRequest().build();
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
+
+//		else {
+//			Stock stock = form.convertTo();
+//			stockService.saveStockDb(stock);
+//			form.addQuotesList(stock);
+//			stockService.saveQuoteDb(stock.getQuotes());
+//			return new ResponseEntity<>(new StockQuoteDto(stock), HttpStatus.CREATED);
+//		}
 	}
 
+	/** Delete method to clear cache */
 	@DeleteMapping("/stockcache")
 	public void deletar() {
 		System.out.println("cache erased");

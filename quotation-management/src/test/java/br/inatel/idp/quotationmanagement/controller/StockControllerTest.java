@@ -58,14 +58,14 @@ class StockControllerTest {
 	}
 	
 	@Test
-	public void Return404ByPostStockQuoteInvalidStockId() {
+	public void Return400ByPostStockQuoteInvalidStockId() {
 		StockQuoteForm stockForm = createStockForm();
 		stockForm.setStockId("testInvalid");
 		webTestClient.post()
 		.uri("/stock")
 		.body(BodyInserters.fromValue(stockForm))
 		.exchange()
-		.expectStatus().isNotFound();
+		.expectStatus().isBadRequest();
 	}
 
 	private StockQuoteForm createStockForm() {

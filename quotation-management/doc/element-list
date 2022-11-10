@@ -1,0 +1,10 @@
+br.inatel.idp.quotationmanagement
+br.inatel.idp.quotationmanagement.controller
+br.inatel.idp.quotationmanagement.model.dto
+br.inatel.idp.quotationmanagement.model.entity
+br.inatel.idp.quotationmanagement.model.form
+br.inatel.idp.quotationmanagement.repository
+br.inatel.idp.quotationmanagement.service
+br.inatel.idp.quotationmanagement.swagger
+br.inatel.idp.quotationmanagement.testService
+br.inatel.idp.quotationmanagement.validation

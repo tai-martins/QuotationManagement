@@ -13,13 +13,24 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-
+/**
+ * ErrorValidationhandler Class. 
+ * 
+ * @author Tainara Martins.
+ * @since November 2022
+ */
 @RestControllerAdvice
 public class ErrorValidationHandler {
 	
 	@Autowired
 	private MessageSource messageSource;
 	
+	/**
+	 * Handle the threw exception and launch a error.
+	 * 
+	 * @param ex the exception
+	 * @return dto the list of errors
+	 */
 	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public List<FormErrorDto> handle(MethodArgumentNotValidException ex){
