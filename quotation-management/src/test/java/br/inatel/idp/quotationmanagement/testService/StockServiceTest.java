@@ -49,10 +49,5 @@ public class StockServiceTest {
 		Optional<Stock> stock = stockService.findOneStockQuoteByStockId(saveStock.getStockId());
 		assertFalse(stock.get().getStockId().isEmpty());
 	}
-	
-	@Test
-	public void SaveQuoteInDataBase() {
-		
-	}
 
 }

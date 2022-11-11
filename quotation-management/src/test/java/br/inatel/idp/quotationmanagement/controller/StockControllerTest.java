@@ -47,14 +47,14 @@ class StockControllerTest {
 	}
 	
 	@Test
-	public void Return201ByPostStockQuote() {
+	public void Return200ByPostStockQuote() {
 		StockQuoteForm stockForm = createStockForm();
 		webTestClient.post()
 		.uri("/stock")
 		.body(BodyInserters.fromValue(stockForm))
 		.exchange()
 		.expectHeader().contentType(MediaType.APPLICATION_JSON)
-		.expectStatus().isCreated();
+		.expectStatus().isOk();
 	}
 	
 	@Test
@@ -71,7 +71,7 @@ class StockControllerTest {
 	private StockQuoteForm createStockForm() {
 		Map<LocalDate, BigDecimal> quotesMap = new HashMap<>();
 		quotesMap.put(LocalDate.now(), null);
-		StockQuoteForm stockForm = new StockQuoteForm("magalu", quotesMap);
+		StockQuoteForm stockForm = new StockQuoteForm("petr4", quotesMap);
 		return stockForm;
 	}
 }

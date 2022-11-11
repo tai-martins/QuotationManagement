@@ -3,8 +3,6 @@ package br.inatel.idp.quotationmanagement.adapter;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -39,19 +37,4 @@ public class StockManagerAdapter {
 	    return sMDto;
 	} 
 	
-//	@PostConstruct
-//	public void notificationRegister () {
-//
-//		NotificationForm nf = new NotificationForm(host,port);
-//		
-//		WebClient.create(URL_MANAGER)
-//		.post()
-//		.uri("/notification")
-//		.bodyValue(nf)
-//		.retrieve()
-//		.toBodilessEntity()
-//		.block();
-//		
-//	}
-
 }
