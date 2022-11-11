@@ -32,7 +32,7 @@ class StockControllerTest {
 	@Test
 	public void Return200ByAValidStockId() {
 		webTestClient.get()
-		.uri("/stock/magalu")
+		.uri("/stock/petr4")
 		.accept(MediaType.APPLICATION_JSON)
 		.exchange()
 		.expectStatus().isOk();

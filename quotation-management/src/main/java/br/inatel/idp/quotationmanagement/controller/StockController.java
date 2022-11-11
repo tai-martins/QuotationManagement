@@ -80,26 +80,25 @@ public class StockController {
 	public ResponseEntity<?> createStockQuote(@RequestBody @Valid StockQuoteForm form) {
 
 		Optional<Stock> opStock = stockService.findOneStockQuoteByStockId(form.getStockId());
+		Stock stock = form.convertTo();
 
 		if (opStock.isPresent()) {
-			Stock stock = opStock.get();
+			stock = opStock.get();
+			form.addQuotesList(stock);
+			stockService.saveQuoteDb(stock.getQuotes());
+			return new ResponseEntity<>(new StockQuoteDto(stock), HttpStatus.OK);
+		}
+		else if(stockService.existsAtStockManager(stock)){
+			stock = stockService.saveStockDb(stock);
 			form.addQuotesList(stock);
 			stockService.saveQuoteDb(stock.getQuotes());
 			return new ResponseEntity<>(new StockQuoteDto(stock), HttpStatus.CREATED);
 		}
-
 		else {
-//			return ResponseEntity.badRequest().build();
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 
-//		else {
-//			Stock stock = form.convertTo();
-//			stockService.saveStockDb(stock);
-//			form.addQuotesList(stock);
-//			stockService.saveQuoteDb(stock.getQuotes());
-//			return new ResponseEntity<>(new StockQuoteDto(stock), HttpStatus.CREATED);
-//		}
+
 	}
 
 	/** Delete method to clear cache */

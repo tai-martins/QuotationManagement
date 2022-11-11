@@ -29,7 +29,7 @@ public class StockServiceTest {
 	
 	@Test
 	public void ReturnAllStockQuoteByStockId() {
-		String stockId = "bbas3";
+		String stockId = "petr4";
 		Optional<Stock> opStock = stockService.findOneStockQuoteByStockId(stockId);
 		assertNotNull(opStock);
 		assertEquals(stockId, opStock.get().getStockId());
