@@ -51,7 +51,7 @@ public class StockService {
 	 */
 	public void saveQuoteDb(List<Quote> quotes) {
 		quotes.forEach(quote -> quoteRepository.save(quote));
-	}
+	} 
 
 	/**
 	 * Find one stock with quotes by stockId
@@ -76,6 +76,12 @@ public class StockService {
 		return stocks;
 	}
 
+	/**
+	 * check if there is an Stock
+	 * 
+	 * @param stock
+	 * @return stocksAtManager
+	 */
 	public boolean existsAtStockManager(Stock stock) {
 		List<StockManagerDto> stocksAtManager = stockManagerAdapter.listAllStocks();
 		return stocksAtManager.stream().anyMatch(s -> s.getId().equals(stock.getStockId()));
