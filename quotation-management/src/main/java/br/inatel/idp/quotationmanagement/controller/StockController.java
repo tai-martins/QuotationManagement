@@ -48,7 +48,6 @@ public class StockController {
 	public List<StockQuoteDto> list() {
 		List<Stock> stocks = stockService.findAllStockQuote();
 		List<StockQuoteDto> sqDto = StockQuoteDto.convertTo(stocks);
-		// stocks.stream().map(StockQuoteDto::new).collect(Collectors.toList());
 		return sqDto;
 	}
 
