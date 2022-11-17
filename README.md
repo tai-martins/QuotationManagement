@@ -41,7 +41,6 @@ Install dependencies:
 mvn install
 ```
 
-
 #### Clone this repository
 ```
 git clone https://github.com/tai-martins/QuotationManagement.git
