@@ -13,19 +13,20 @@ import reactor.core.publisher.Flux;
 @Service
 public class StockManagerAdapter {
 
-	@Value("http://localhost:8080")
+	@Value("${URL_MANAGER}")
 	private String URL_MANAGER;
 	
-	@Value("localhost")
+	@Value("${server.host}")
 	private String host;
 	
-	@Value("8080")
+	@Value("${url.port}")
 	private String port;
 	
 	@Cacheable(value = "stocksAtManagerList")
 	public List<StockManagerDto> listAllStocks() {
 		List<StockManagerDto> sMDto = new ArrayList<>();
 		Flux<StockManagerDto> fluxDto = WebClient.create(URL_MANAGER)
+				//builder().baseUrl("http://"+ URL_MANAGER).build()
 				.get()
 				.uri("/stock")
 				.retrieve()
